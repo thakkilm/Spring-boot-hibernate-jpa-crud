@@ -19,9 +19,14 @@ public class CruddemoApplication {
 		return  runner-> {
 //			createStudent(studentDAO);
 //		readStudent(studentDAO);
-		findAllRecords(studentDAO);
+//		findAllRecords(studentDAO);
+		findByLastName(studentDAO);
 		};
 		}
+
+	private void findByLastName(StudentDAO studentDAO) {
+		System.out.println("Displaying all the records with matching lastName: "+studentDAO.findByLastName("korapati"));
+	}
 
 	private void findAllRecords(StudentDAO studentDAO) {
 		System.out.println("Displaying all the records: "+studentDAO.findAll());
@@ -38,7 +43,7 @@ public class CruddemoApplication {
 
 	private void createStudent(StudentDAO studentDAO) {
 
-		Student tempStudent=new Student("Lokesh","Thakkilapati","thakkill@mail.gvsu.edu");
+		Student tempStudent=new Student("Lavanya","Korapati","korapal@mail.gvsu.edu");
 		studentDAO.save(tempStudent);
 		System.out.println("ID: "+tempStudent.getId());
 	}
