@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class CruddemoApplication {
 
@@ -21,9 +23,29 @@ public class CruddemoApplication {
 //		readStudent(studentDAO);
 //		findAllRecords(studentDAO);
 //		findByLastName(studentDAO);
-		updateByFirstName(studentDAO);
+//		updateByFirstName(studentDAO);
+//		deleteByID(studentDAO);
+		deletAll(studentDAO);
 		};
 		}
+
+	private void deletAll(StudentDAO studentDAO) {
+		List<Student> stl=studentDAO.findAll();
+		System.out.println("Before: "+stl);
+		System.out.println(studentDAO.deleteAll());
+		stl=studentDAO.findAll();
+		System.out.println("After: "+stl);
+	}
+
+	private void deleteByID(StudentDAO studentDAO) {
+//		Student st1=studentDAO.findByID(1);
+		List<Student> stl=studentDAO.findAll();
+		System.out.println("Before: "+stl);
+		studentDAO.delete(1);
+		stl=studentDAO.findAll();
+		System.out.println("After: "+stl);
+
+	}
 
 	private void updateByFirstName(StudentDAO studentDAO) {
 		Student st1=studentDAO.findByID(1);
