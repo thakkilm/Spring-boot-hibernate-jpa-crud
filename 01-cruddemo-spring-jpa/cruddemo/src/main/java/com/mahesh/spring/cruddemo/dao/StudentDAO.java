@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 public interface StudentDAO {
 
     void save(Student student);
+    Student findByID(int id);
 }
