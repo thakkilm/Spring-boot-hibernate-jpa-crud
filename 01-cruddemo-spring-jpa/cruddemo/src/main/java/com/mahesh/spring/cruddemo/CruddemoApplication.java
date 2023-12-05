@@ -20,9 +20,18 @@ public class CruddemoApplication {
 //			createStudent(studentDAO);
 //		readStudent(studentDAO);
 //		findAllRecords(studentDAO);
-		findByLastName(studentDAO);
+//		findByLastName(studentDAO);
+		updateByFirstName(studentDAO);
 		};
 		}
+
+	private void updateByFirstName(StudentDAO studentDAO) {
+		Student st1=studentDAO.findByID(1);
+		System.out.println("Before Updating First Name: "+st1);
+		st1.setFirstName("Mahesh Naidu");
+		studentDAO.update(st1);
+		System.out.println("After Updating First Name: "+studentDAO.findByID(1));
+	}
 
 	private void findByLastName(StudentDAO studentDAO) {
 		System.out.println("Displaying all the records with matching lastName: "+studentDAO.findByLastName("korapati"));
