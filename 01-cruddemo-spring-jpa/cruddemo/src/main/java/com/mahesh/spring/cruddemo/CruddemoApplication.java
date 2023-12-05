@@ -18,10 +18,14 @@ public class CruddemoApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO){
 		return  runner-> {
 //			createStudent(studentDAO);
-		readStudent(studentDAO);
-
+//		readStudent(studentDAO);
+		findAllRecords(studentDAO);
 		};
 		}
+
+	private void findAllRecords(StudentDAO studentDAO) {
+		System.out.println("Displaying all the records: "+studentDAO.findAll());
+	}
 
 	private void readStudent(StudentDAO studentDAO) {
 		Student tempStudent=new Student("Lavanya","Thakkilapati","thakkill@mail.gvsu.edu");
